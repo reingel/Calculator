@@ -9,8 +9,20 @@
 import SwiftUI
 
 struct ContentView : View {
+	var calculator = Calculator()
+	
     var body: some View {
-        Text("Hello World")
+		VStack {
+			Spacer()
+			Text("Ans")
+			Spacer()
+			HStack {
+				TextField(.constant("Enter an expression"))
+					.frame(width: 200, height: 50, alignment: .center)
+			}
+			Spacer()
+			Spacer()
+		}
     }
 }
 
