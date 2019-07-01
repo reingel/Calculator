@@ -177,7 +177,7 @@
 				9DB6A49722C8932400497407 /* Unit.swift */,
 				9DB6A49C22C8932500497407 /* Utils.swift */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
