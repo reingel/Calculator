@@ -61,7 +61,7 @@ class CalculatorTests: XCTestCase {
 		let km = Unit["km"]
 		print(km!)
 		let Nm = Unit["Nm"]
-		print(Nm!)
+		print(Nm)
 		XCTAssert(Unit.contains("degC"))
 		XCTAssertFalse(Unit.contains("MB"))
 		let length = Unit[.length]
