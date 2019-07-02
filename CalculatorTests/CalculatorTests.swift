@@ -92,14 +92,18 @@ class CalculatorTests: XCTestCase {
 	}
 	
 	func testCalculator() {
+		let option = false
 		var calculator = Calculator()
-		XCTAssert(calculator.evaluate("1+2^9*3+4/5-6^2", verbose: true) == "1501.8")
+		XCTAssert(calculator.evaluate("1+2^9*3+4/5-6^2", verbose: option) == "1501.8")
 		print("")
-		XCTAssert(calculator.evaluate("1 + 2 ^ 9 * 3 + 4 / 5 - 6 ^ 2", verbose: true) == "1501.8")
+		XCTAssert(calculator.evaluate("1 + 2 ^ 9 * 3 + 4 / 5 - 6 ^ 2", verbose: option) == "1501.8")
 		print("")
-		XCTAssert(calculator.evaluate("7*(2+3)", verbose: true) == "35.0")
-		print(calculator.evaluate("1km + 200m", verbose: true))
-		XCTAssert(calculator.evaluate("1km + 200m * (3 - 1)", verbose: true) == "1400.0")
+		XCTAssert(calculator.evaluate("7*(2+3)", verbose: option) == "35.0")
+		print("")
+		XCTAssert(calculator.evaluate("1e-3km + 200 m *(3 - 1)", in: "km", verbose: true) == "0.401 km")
+		print("")
+		XCTAssert(calculator.evaluate("0 degC", in: "degF", verbose: true) == "32.0 degF")
+		print(calculator.parserError)
 		print("")
 	}
 }

@@ -25,8 +25,8 @@ struct Unit {
 		
 		"m^2": Unit(dim: .area, isFavorite: true),
 		
-		"degC": Unit(dim: .temperature, factor: 1.0, offset: -273.15, isFavorite: true),
-		"degF": Unit(dim: .temperature, factor: 1.8, offset: -459.67),
+		"degC": Unit(dim: .temperature, factor: 1.0, offset: 273.15, isFavorite: true),
+		"degF": Unit(dim: .temperature, factor: 5.0/9.0, offset: 459.67*5.0/9.0),
 	]
 	
 	static func contains(_ unitString: String) -> Bool { units[unitString] != nil }

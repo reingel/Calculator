@@ -256,7 +256,9 @@ struct Calculator {
         return true
     }
     
-	mutating func evaluate(_ string: String, verbose: Bool = false) -> String {
+	mutating func evaluate(_ string: String, in unitString: String? = nil, verbose: Bool = false) -> String? {
+		parserError = .noError
+		
         guard parse(string, verbose: verbose) else {
 			return parserError.description
         }
@@ -391,7 +393,15 @@ struct Calculator {
         case let .numeric(value, _):
             return String(value)
 		case let .physical(value, _):
-			return String(value.value)// + Unit[value.dim]
+			if unitString != nil {
+				if let unit = Unit[unitString!] {
+					return String(value[unit]!) + " " + unitString!
+				} else {
+					return nil
+				}
+			} else {
+				return String(value.value)
+			}
         default:
 			parserError = .unknownObject(0)
 			return parserError.description

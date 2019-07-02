@@ -128,10 +128,10 @@ struct PhysicalValue: Equatable {
 
 extension NumericValue {
 	static func *(lhs: NumericValue, rhs: Unit) -> PhysicalValue {
-		return lhs * PhysicalValue(1.0, rhs)
+		return PhysicalValue(lhs, rhs)
 	}
 	
 	static func /(lhs: NumericValue, rhs: Unit) -> PhysicalValue {
-		return lhs / PhysicalValue(1.0, rhs)
+		return PhysicalValue(lhs, rhs)
 	}
 }
